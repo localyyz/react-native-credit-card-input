@@ -74,7 +74,11 @@ export default class LiteCreditCardInput extends Component {
   componentDidMount = () => this._focus(this.props.focused);
 
   componentWillReceiveProps = newProps => {
-    if (this.props.focused !== newProps.focused) this._focus(newProps.focused);
+    if (!newProps.focused) {
+      this._blur();
+    } else if (this.props.focused !== newProps.focused) {
+      this._focus(newProps.focused);
+    }
   };
 
   _focusNumber = () => this._focus("number");
@@ -83,6 +87,13 @@ export default class LiteCreditCardInput extends Component {
   _focus = field => {
     if (!field) return;
     this.refs[field].focus();
+    LayoutAnimation.easeInEaseOut();
+  }
+
+  _blur = () => {
+    this.refs.number.blur();
+    this.refs.expiry.blur();
+    this.refs.cvc.blur();
     LayoutAnimation.easeInEaseOut();
   }
 

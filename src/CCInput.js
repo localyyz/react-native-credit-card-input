@@ -67,6 +67,7 @@ export default class CCInput extends Component {
   };
 
   focus = () => this.refs.input.focus();
+  blur = () => this.refs.input.blur();
 
   _onFocus = () => this.props.onFocus(this.props.field);
   _onChange = value => this.props.onChange(this.props.field, value);

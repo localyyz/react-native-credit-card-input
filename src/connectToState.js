@@ -70,6 +70,10 @@ export default function connectToState(CreditCardInput) {
       this.setState({ focused: field });
     };
 
+    blur = () => {
+      this.setState({ focused: "" });
+    }
+
     _displayedFields = () => {
       const { requiresName, requiresCVC, requiresPostalCode } = this.props;
       return compact([
