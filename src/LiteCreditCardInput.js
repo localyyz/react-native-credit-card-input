@@ -66,6 +66,7 @@ export default class LiteCreditCardInput extends Component {
     placeholders: PropTypes.object,
 
     inputStyle: Text.propTypes.style,
+    containerStyle: Text.propTypes.style,
 
     validColor: PropTypes.string,
     invalidColor: PropTypes.string,
@@ -100,13 +101,13 @@ export default class LiteCreditCardInput extends Component {
 
   _inputProps = field => {
     const {
-      inputStyle, validColor, invalidColor, placeholderColor,
+      inputStyle, containerStyle, validColor, invalidColor, placeholderColor,
       placeholders, values, status,
       onFocus, onChange, onBecomeEmpty, onBecomeValid,
     } = this.props;
 
     return {
-      inputStyle, validColor, invalidColor, placeholderColor,
+      inputStyle, containerStyle, validColor, invalidColor, placeholderColor,
       ref: field, field,
 
       placeholder: placeholders[field],
@@ -126,11 +127,11 @@ export default class LiteCreditCardInput extends Component {
   }
 
   render() {
-    const { focused, values: { number }, inputStyle, status: { number: numberStatus } } = this.props;
+    const { focused, values: { number }, inputStyle, containerStyle, status: { number: numberStatus } } = this.props;
     const showRightPart = focused && focused !== "number";
 
     return (
-      <View style={s.container}>
+      <View style={[s.container, containerStyle]}>
         <View style={[
           s.leftPart,
           showRightPart ? s.hidden : s.expanded,
