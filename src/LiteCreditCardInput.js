@@ -21,15 +21,15 @@ const s = StyleSheet.create({
     paddingRight: 10,
     flexDirection: "row",
     alignItems: "center",
-    overflow: "hidden"
+    overflow: "hidden",
   },
   icon: {
     width: 48,
     height: 40,
-    resizeMode: "contain"
+    resizeMode: "contain",
   },
   expanded: {
-    flex: 1
+    flex: 1,
   },
   hidden: {
     width: 0,
@@ -40,21 +40,21 @@ const s = StyleSheet.create({
   rightPart: {
     overflow: "hidden",
     flexDirection: "row",
-    marginLeft: 10
+    marginLeft: 10,
   },
   last4: {
     flex: 1,
     justifyContent: "center",
-    height: 40
+    height: 40,
   },
   numberInput: {
-    width: INFINITE_WIDTH
+    width: INFINITE_WIDTH,
   },
   expiryInput: {
-    width: 80
+    width: 80,
   },
   cvcInput: {
-    width: 80
+    width: 80,
   },
 });
 
