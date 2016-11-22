@@ -21,15 +21,15 @@ const s = StyleSheet.create({
     paddingRight: 10,
     flexDirection: "row",
     alignItems: "center",
-    overflow: "hidden",
+    overflow: "hidden"
   },
   icon: {
     width: 48,
     height: 40,
-    resizeMode: "contain",
+    resizeMode: "contain"
   },
   expanded: {
-    flex: 1,
+    flex: 1
   },
   hidden: {
     width: 0,
@@ -40,21 +40,21 @@ const s = StyleSheet.create({
   rightPart: {
     overflow: "hidden",
     flexDirection: "row",
-    marginLeft: 10,
+    marginLeft: 10
   },
   last4: {
     flex: 1,
     justifyContent: "center",
-    height: 40,
+    height: 40
   },
   numberInput: {
-    width: INFINITE_WIDTH,
+    width: INFINITE_WIDTH
   },
   expiryInput: {
-    width: 80,
+    width: 80
   },
   cvcInput: {
-    width: 80,
+    width: 80
   },
 });
 
@@ -66,6 +66,7 @@ export default class LiteCreditCardInput extends Component {
     placeholders: PropTypes.object,
 
     inputStyle: Text.propTypes.style,
+    containerStyle: Text.propTypes.style,
 
     validColor: PropTypes.string,
     invalidColor: PropTypes.string,
@@ -100,13 +101,13 @@ export default class LiteCreditCardInput extends Component {
 
   _inputProps = field => {
     const {
-      inputStyle, validColor, invalidColor, placeholderColor,
+      inputStyle, containerStyle, validColor, invalidColor, placeholderColor,
       placeholders, values, status,
       onFocus, onChange, onBecomeEmpty, onBecomeValid,
     } = this.props;
 
     return {
-      inputStyle, validColor, invalidColor, placeholderColor,
+      inputStyle, containerStyle, validColor, invalidColor, placeholderColor,
       ref: field, field,
 
       placeholder: placeholders[field],
@@ -126,11 +127,11 @@ export default class LiteCreditCardInput extends Component {
   }
 
   render() {
-    const { focused, values: { number }, inputStyle, status: { number: numberStatus } } = this.props;
+    const { focused, values: { number }, inputStyle, containerStyle, status: { number: numberStatus } } = this.props;
     const showRightPart = focused && focused !== "number";
 
     return (
-      <View style={s.container}>
+      <View style={[s.container, containerStyle]}>
         <View style={[
           s.leftPart,
           showRightPart ? s.hidden : s.expanded,
