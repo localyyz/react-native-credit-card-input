@@ -13,8 +13,6 @@ import Icons from "./Icons";
 import CCInput from "./CCInput";
 import { InjectedProps } from "./connectToState";
 
-const INFINITE_WIDTH = 1000;
-
 const s = StyleSheet.create({
   container: {
     paddingLeft: 10,
@@ -29,7 +27,7 @@ const s = StyleSheet.create({
     resizeMode: "contain",
   },
   expanded: {
-    flex: 1,
+    flexGrow: 1,
   },
   hidden: {
     width: 0,
@@ -43,11 +41,11 @@ const s = StyleSheet.create({
     marginLeft: 10,
   },
   last4: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "center",
   },
   numberInput: {
-    width: INFINITE_WIDTH,
+    flexGrow: 1,
   },
   expiryInput: {
     width: 80,
@@ -136,10 +134,10 @@ export default class LiteCreditCardInput extends Component {
         ]}>
           <TouchableOpacity onPress={this._focusNumber}
               style={s.last4}>
-            <View pointerEvents={"none"} style={{ flex: 1 }}>
+            <View pointerEvents={"none"} style={{ flexGrow: 1 }}>
               <TextInput editable={false}
                   underlineColorAndroid={"transparent"}
-                  style={[inputStyle, { flex: 1 }]}
+                  style={[inputStyle, { flexGrow: 1 }]}
                   value={ numberStatus === "valid" ? number.substr(number.length - 4, 4) : "" } />
             </View>
           </TouchableOpacity>
