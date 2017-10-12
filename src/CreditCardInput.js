@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 import ReactNative, {
   NativeModules,
   View,
@@ -7,6 +7,7 @@ import ReactNative, {
   ScrollView,
   Dimensions,
 } from "react-native";
+import PropTypes from "prop-types";
 
 import CreditCard from "react-native-credit-card";
 import CCInput from "./CCInput";
