@@ -115,7 +115,7 @@ export default class CreditCardInput extends Component {
             bar />
         <ScrollView ref="Form"
             horizontal
-            keyboardShouldPersistTaps
+            keyboardShouldPersistTaps="always"
             scrollEnabled={false}
             showsHorizontalScrollIndicator={false}
             style={s.form}>
